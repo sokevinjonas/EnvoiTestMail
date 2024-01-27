@@ -46,31 +46,26 @@ class InscriptionController extends Controller
         }
 
     }
-    public function sendEmails()
-    {
-        // Récupérez les adresses e-mail depuis la table Inscription
-        $emails = Inscription::pluck('email')->toArray();
+    // public function sendEmails()
+    // {
+    //     // Récupérez les adresses e-mail depuis la table Inscription
+    //     $emails = Inscription::pluck('email')->toArray();
     
-        $montant = 100; // Montant de la scolarité à payer
-        $devise = 'FCFA'; // Devise (par exemple, EUR, USD, etc.)
-        $lienPaiement = 'https://jonasdev.pteam-transfert.com';
+    //     $montant = 100; // Montant de la scolarité à payer
+    //     $devise = 'FCFA'; // Devise (par exemple, EUR, USD, etc.)
+    //     $lienPaiement = 'https://jonasdev.pteam-transfert.com';
     
-        // Envoyez la notification à chaque e-mail en utilisant la file d'attente
-        foreach ($emails as $email) {
-            // Assurez-vous de vérifier si l'e-mail est valide avant de l'envoyer
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $user = Inscription::where('email', $email)->first();
-                $user->notify((new RappelPaiementNotification($montant, $devise, $lienPaiement))->delay(now()->addSeconds(10)));
-            }
-        }
+    //     // Envoyez la notification à chaque e-mail en utilisant la file d'attente
+    //     foreach ($emails as $email) {
+    //         // Assurez-vous de vérifier si l'e-mail est valide avant de l'envoyer
+    //         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    //             $user = Inscription::where('email', $email)->first();
+    //             $user->notify((new RappelPaiementNotification($montant, $devise, $lienPaiement))->delay(now()->addSeconds(10)));
+    //         }
+    //     }
     
-        return redirect()->back()->with('success', 'E-mails en cours d\'envoi.');
-    }
-
-
-
-
-
+    //     return redirect()->back()->with('success', 'E-mails en cours d\'envoi.');
+    // }
 
     /**
      * Display the specified resource.

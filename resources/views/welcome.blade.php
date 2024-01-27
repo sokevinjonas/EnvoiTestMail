@@ -15,7 +15,7 @@
 <body>
     <div class="container">
         <div class="card mt-5 mx-auto">
-            <a href="{{route('sendEmails')}}" class="btn btn-warning btn-lg">Rappel Parent</a>
+            <a href="#" class="btn btn-warning btn-lg">Rappel Parent</a>
             <div class="card-body">
                 <h4 class="text-center mb-4">Inscrivez-vous et recevez les notes de votre enfant</h4>
                 <form method="POST" action="{{ route('inscriptions.store') }}">
@@ -24,7 +24,7 @@
                     <div class="mb-3 row">
                         <label for="nom" class="col-sm-4 col-form-label text-sm-end">Nom et Prénom :</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" name="nom" value="{{old('$nom')}}">
+                            <input type="text" class="form-control" name="nom" value="{{ old('$nom') }}">
                             <div class="form-text text-warning">Veuillez entrer le nom complet de votre enfant.</div>
                             @error('nom')
                                 <div class="alert alert-danger">{{ $message }}</div>
@@ -45,7 +45,8 @@
                         <label for="email" class="col-sm-4 col-form-label text-sm-end">Adresse Email :</label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" name="email">
-                            <div class="form-text text-warning">Nous ne partagerons jamais votre adresse e-mail avec personne.</div>
+                            <div class="form-text text-warning">Nous ne partagerons jamais votre adresse e-mail avec
+                                personne.</div>
                             @error('email')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -58,8 +59,8 @@
             </div>
         </div>
     </div>
-    
-    
+
+
 </body>
 
 </html>

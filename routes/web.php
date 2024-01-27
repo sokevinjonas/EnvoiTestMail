@@ -16,4 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('inscriptions', InscriptionController::class)->except('create');
 Route::get('/', [InscriptionController::class, 'create']);
-Route::get('/paiements', [InscriptionController::class, 'sendEmails'])->name('sendEmails');
+// Route::get('/paiements', [InscriptionController::class, 'sendEmails'])->name('sendEmails');
